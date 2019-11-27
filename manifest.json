@@ -1,0 +1,38 @@
+{
+  "name": "DesignReview",
+  "version": "0.0.1",
+  "description": "visually alter a web page, make a screenshot, and discuss with colleagues.",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab",
+    "storage",
+    "topSites"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_title": "DesignReview",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
