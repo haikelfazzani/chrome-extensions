@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let btnSaveForLater = document.getElementById('save-for-later');
   let btnGetStorage = document.getElementById('get-storage')
 
-  let btnJsonParse = document.getElementById('json-parse')
+  let btnJsonParse = document.getElementById('json-parse')  
 
   let ulList = document.getElementById('list')
 
@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (btnTopSites) {
     btnTopSites.addEventListener('click', () => {
       chrome.topSites.get(function (data) {
+        ulList.innerHTML = ''
         data.forEach(element => {
-          ulList.innerHTML += `<li><a href="${element.url}" target="_blank">🔗 ${element.title}</a></li>`
+          ulList.innerHTML += `
+          <a href="${element.url}" class="list-group-item">🔗 ${element.title}</a>`          
         });
       })
     })
@@ -41,13 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  if (btnGetStorage) {
-    btnGetStorage.addEventListener('click', () => {
-      chrome.storage.sync.get(['key'], function (result) {
-        alert('Value currently is ' + result.key);
-      });
-    })
-  }
+  
 
   if (btnJsonParse) {
     btnJsonParse.addEventListener('click', () => {
@@ -56,5 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     })
   }
+
+
+
 
 })

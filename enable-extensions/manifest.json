@@ -6,7 +6,8 @@
   "permissions": [
     "activeTab",
     "storage",
-    "topSites"
+    "topSites",
+    "management"
   ],
   "background": {
     "persistent": false,
