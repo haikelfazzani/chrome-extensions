@@ -1,13 +1,13 @@
 {
-  "name": "TopSitesVisit",
+  "name": "fede",
   "version": "0.0.1",
-  "description": "List of the last top sites visited.",
+  "description": "fast way enable disable an extension.",
   "manifest_version": 2,
   "permissions": [
-    "topSites"
+    "management"
   ],
   "browser_action": {
-    "default_title": "TopSitesVisit",
+    "default_title": "FEDE",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/16.png",

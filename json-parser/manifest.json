@@ -1,13 +1,10 @@
 {
-  "name": "DesignReview",
+  "name": "JsonParser",
   "version": "0.0.1",
-  "description": "visually alter a web page, make a screenshot, and discuss with colleagues.",
+  "description": "json parser.",
   "manifest_version": 2,
   "permissions": [
-    "activeTab",
-    "storage",
-    "topSites",
-    "management"
+    "activeTab"
   ],
   "background": {
     "persistent": false,
@@ -16,7 +13,7 @@
     ]
   },
   "browser_action": {
-    "default_title": "DesignReview",
+    "default_title": "JsonParser",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/16.png",
