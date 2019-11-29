@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  let btnJsonParse = document.getElementById('json-parse')
+  var btnJsonParse = document.getElementById('json-parse')
+  btnJsonParse.addEventListener('click', () =>{
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, 'jsonParse', (resp) => {
+        console.log(resp);
+        
+      })
+    });
+  })
 
-  if (btnJsonParse) {
-    btnJsonParse.addEventListener('click', () => {
-      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, 'jsonParse')
-      });
-    })
-  }
 
 })

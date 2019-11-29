@@ -4,7 +4,8 @@
   "description": "json parser.",
   "manifest_version": 2,
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "background": {
     "persistent": false,
