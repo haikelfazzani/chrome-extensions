@@ -6,6 +6,8 @@ chrome.runtime.onConnect.addListener(port => {
   })
 });
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => 
-sendResponse('pong')
-);
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  chrome.tabs.executeScript({
+    code: 'document.body.style.backgroundColor="#000"'
+  });
+});
