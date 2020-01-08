@@ -38,7 +38,7 @@ header img{max-width: 40px; max-height: 40px;}
 .badge {
   font-size: 11px;
   font-weight: 600;
-  background-color: #E91E63;
+  background-color: #0696a9;
   padding: 2px 15px;
   border-radius: 2px;
   text-transform: uppercase;
@@ -71,6 +71,7 @@ header img{max-width: 40px; max-height: 40px;}
 .m-0 {margin: 0;}
 .ml-10 {margin-left: 10px;}
 .ml-20 {margin-left: 20px;}
+.mr-10 {margin-left: 10px;}
 .mt-20 {margin-top: 20px !important;}
 .w25{ width: 25%; }
 .w50{ width: 50%; }

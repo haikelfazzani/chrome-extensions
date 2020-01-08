@@ -1,0 +1,72 @@
+.hLejWw > .sc-dxgOiQ {
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  width: fit-content;
+  height: 100%;
+  margin-left: 54px;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.cmgOtW {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+}
+
+.eFIxha {
+  -webkit-appearance: none;
+  position: absolute;
+  z-index: 99999999;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  outline: none;
+}
+
+.gcyAeL {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  height: 24px;
+  width: 40px;
+}
+
+.eznuVJ {
+  box-sizing: border-box;
+  height: 8px;
+  margin-top: 8px;
+  width: 100%;
+  display: block;
+  background: rgb(196, 199, 201);
+  border-radius: 3px;
+}
+
+.dTRKfN {
+  box-sizing: border-box;
+  position: relative;
+  transform: translate(20px, calc(-50% - 4px));
+  width: 20px;
+  height: 20px;
+  background-color: rgb(251, 84, 43);
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 3px;
+  border-radius: 50%;
+  transition: all 0.4s ease 0s;
+}
+
+
+.hzkbkt {
+  box-sizing: border-box;
+  position: relative;
+  transform: translate(-1px, calc(-50% - 4px));
+  width: 20px;
+  height: 20px;
+  background-color: rgb(235, 236, 240);
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 3px;
+  border-radius: 50%;
+  transition: all 0.4s ease 0s;
+}
