@@ -1,7 +1,7 @@
 {
   "name": "fede",
   "version": "0.0.1",
-  "description": "fast way enable disable an extension.",
+  "description": "fastest way to manage yours extensions or apps.",
   "manifest_version": 2,
   "icons": {
     "512": "icons/icon512.png",
