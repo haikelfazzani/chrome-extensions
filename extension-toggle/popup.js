@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
 
   var filterInput = document.getElementById('filter');
   var ulList = document.getElementById('list');

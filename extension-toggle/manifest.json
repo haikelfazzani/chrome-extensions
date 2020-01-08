@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "fast way enable disable an extension.",
   "manifest_version": 2,
+  "icons": {
+    "512": "icons/icon512.png",
+    "128": "icons/icon128.png",
+    "64": "icons/icon64.png"
+  },
   "permissions": [
     "management"
   ],

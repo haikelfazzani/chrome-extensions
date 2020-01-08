@@ -1,8 +1,12 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-
-  switch (request) {
+  console.log(request);
+  switch (request) {    
+    
     case 'jsonParse':
-      var getPre = document.querySelector('pre')            
+      console.log('ok');
+      
+      var getPre = document.querySelector('editor');
+    
       getPre.textContent = JSON.stringify(JSON.parse(getPre.textContent), null, 2)
       break;
 

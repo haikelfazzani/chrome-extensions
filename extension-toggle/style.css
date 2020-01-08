@@ -1,11 +1,11 @@
 .list-group-item, body {
   margin: 0;
-  background-color: #343a40 !important;
+  background: linear-gradient(to right bottom, rgb(74, 71, 71), rgb(37, 35, 35) 50%, rgb(23, 22, 21) 100%);
   color: #ffffff;
   scroll-behavior: smooth;
 }
 
-.container {  max-height: 420px; padding: 0;   min-width: 500px; overflow: auto; }
+.container {  max-height: 420px; padding: 0;   min-width: 400px; overflow: auto; }
 
 .form-control {
   padding: 7px 15px;
@@ -14,18 +14,20 @@
 
 a { text-decoration: none !important; }
 
+header {display: flex; align-items: center; padding: 20px;}
+header img{max-width: 40px; max-height: 40px;}
 /* list */
 .list-group {padding: 0; margin: 0;}
 .list-group li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #2b3138;
+  border-bottom: 2px solid #333333;
   padding: 10px 20px;
-  transition: background-color .4s;
+  transition: background-color .3s;
 }
 
-.list-group li:hover { background-color: #38515e !important; }
+.list-group li:hover { background-color: #283035 !important; }
 
 .box {
   border-radius: 4px;
@@ -33,7 +35,8 @@ a { text-decoration: none !important; }
 }
 
 .ext-d{ display: flex; justify-content: space-between; align-items: center; width: 90%;}
-.ext-d p {font-size: 14px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 40%; padding: 0; margin: 0;}
+.ext-d p {font-size: 14px;overflow: hidden; text-overflow: ellipsis; 
+  white-space: nowrap; max-width: 50%; padding: 0; margin: 0;}
 
 .badge {
   font-size: 11px;
@@ -47,12 +50,14 @@ a { text-decoration: none !important; }
 .form-check-input {cursor: pointer;}
 
 /* util */
+.m-0 {margin: 0;}
 .ml-10 {margin-left: 10px;}
+.ml-20 {margin-left: 20px;}
 .mt-20 {margin-top: 20px !important;}
 .w25{ width: 25%; }
 .w50{ width: 50%; }
 .w75{ width: 75%; }
-.bg-rose {background-color: #4b6063}
+.bg-rose {background-color: #1c1c1d}
 .bg-g {background-color: #4caf50;}
 .text-muted {color: #828282;}
 /*scroll bar */

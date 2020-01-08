@@ -16,5 +16,12 @@
   "browser_action": {
     "default_title": "youtube-audio",
     "default_popup": "popup.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*.nytimes.com/*"],
+      "run_at": "document_idle",
+      "js": ["contentScript.js"]
+    }
+  ]
 }
