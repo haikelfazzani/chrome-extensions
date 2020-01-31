@@ -4,7 +4,7 @@
   "description": "List of the last top sites visited.",
   "manifest_version": 2,
   "permissions": [
-    "topSites"
+    "topSites","downloads"
   ],
   "browser_action": {
     "default_title": "TopVisits",

@@ -5,14 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function topVisits (data) {
     ulList.innerHTML = '';
-    data.forEach((site,i) => {
-      ulList.innerHTML += `<li>
-        <div>
-          <span>${i+1}</span> 
-          <a href="${site.url}" class="list-group-item">${site.title}</a>
-        </div>
-        <div>></div>
-      </li>`;
+    data.forEach((site, i) => {
+      ulList.innerHTML += createLi(i, site.url, site.title);
     });
+  }
+
+  function createLi (idx, url, title) {
+    return `<li>
+    <div>
+      <span>${idx + 1}</span> 
+      <a href="${url}" target="_blank" class="list-group-item">${title}</a>
+    </div>
+    <div>></div>
+    </li>`;
   }
 });
