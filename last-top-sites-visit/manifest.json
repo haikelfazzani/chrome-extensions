@@ -1,5 +1,5 @@
 {
-  "name": "TopSitesVisit",
+  "name": "TopVisits",
   "version": "0.0.1",
   "description": "List of the last top sites visited.",
   "manifest_version": 2,
@@ -7,7 +7,7 @@
     "topSites"
   ],
   "browser_action": {
-    "default_title": "TopSitesVisit",
+    "default_title": "TopVisits",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/16.png",

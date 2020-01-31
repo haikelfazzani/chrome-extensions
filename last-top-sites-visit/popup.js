@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
+  let ulList = document.getElementById('list');
 
-  let btnTopSites = document.getElementById('top-sites')
-  let ulList = document.getElementById('list')
+  chrome.topSites.get(topVisits);
 
-  if (btnTopSites) {
-    btnTopSites.addEventListener('click', () => {
-      chrome.topSites.get(function (data) {
-        ulList.innerHTML = ''
-        data.forEach(element => {
-          ulList.innerHTML += `
-          <a href="${element.url}" class="list-group-item">🔗 ${element.title}</a>`          
-        });
-      })
-    })
+  function topVisits (data) {
+    ulList.innerHTML = '';
+    data.forEach((site,i) => {
+      ulList.innerHTML += `<li>
+        <div>
+          <span>${i+1}</span> 
+          <a href="${site.url}" class="list-group-item">${site.title}</a>
+        </div>
+        <div>></div>
+      </li>`;
+    });
   }
-
-})
+});
