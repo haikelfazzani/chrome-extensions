@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="fab-editor">
+    <div class="vertical-align col-8" id="fab-tools">
+      <span>eraser</span>
+      <span>eraser-all</span>
+      <span>fill</span>
+      <span>cursor</span>
+      <span>move</span>      
+      <span>step backward</span>
+      <span>step forward</span>
+    </div>
+
+    <div class="vertical-align col-8" id="fab-edit">
+      <span>save changes</span>
+      <span>capture</span>
+      <span>export</span>
+      <span>close panel</span>
+    </div>
+
+    <div class="vertical-align col-8" id="fab-draw">
+      <span>text</span>
+      <span>line</span>
+      <span>circle</span>
+      <span>triangle</span>
+      <span>rectangle</span>
+      <span>octagon</span>
+      <span>emerald</span>
+      <span>star</span>
+    </div>
+  </div>
+
+  <input type="color" name="input-color" id="input-color">
+  <div id="fill-transparent">transparent</div>
+  
+  <h1>hello world</h1>
+  <canvas id="canvas"></canvas>
+
+  <script src="fabric.js"></script>
+
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+  
+</body>
+
+</html>
