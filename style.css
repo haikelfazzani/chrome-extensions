@@ -5,16 +5,22 @@ body {
   position: relative;
 }
 
-canvas {
-  position: absolute;
+#canvas-container,canvas {
+  position: fixed !important;
   top: 0;
   left: 0;
   border: 1px solid rgb(58, 58, 58);
   background-color: transparent;
+  z-index: 9999;
+  /* pointer-events: none; */
 }
 
 .fab-editor {
   width: 600px; 
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99991;
   background-color: rgb(58, 58, 58); 
   color: #ffffff;
 }

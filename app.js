@@ -1,9 +1,10 @@
 let inputColor = '#000';
 let activeObject = null;
+let pointerEvents = false;
 
-const canvas = new fabric.Canvas('canvas', { width: 600, height: 500 });
+const canvas = new fabric.Canvas('canvas', { isDrawingMode: false, width: window.innerWidth, height: window.innerHeight });
 fabric.Object.prototype.transparentCorners = false;
-
+console.log(canvas.style);
 document.getElementById('fab-draw').addEventListener('click', (e) => {
   switch (e.target.textContent) {
     case 'text':
@@ -118,9 +119,13 @@ document.getElementById('fab-tools').addEventListener('click', (e) => {
       break;
 
     case 'eraser-all':
-
+      canvas.remove(...canvas.getObjects());
       break;
 
+    case 'interact-page':
+      pointerEvents = !pointerEvents;
+      document.querySelector('.canvas-container').style.setProperty("pointer-events", (pointerEvents ? 'none' : 'auto'), "important")
+      break;
 
     default:
       break;
@@ -129,6 +134,15 @@ document.getElementById('fab-tools').addEventListener('click', (e) => {
 
 document.getElementById('fab-edit').addEventListener('click', (e) => {
   switch (e.target.textContent) {
+    case 'drawing':
+      canvas.isDrawingMode = true;
+      canvas.freeDrawingBrush.width = 10;
+      break;
+
+    case 'shapes':
+      canvas.isDrawingMode = false;
+      break;
+
     case 'export':
       exportToIMG();
       break;
@@ -151,6 +165,29 @@ function onChangeProp (e) {
   activeObject = canvas.getActiveObjects()[0];
 }
 
+canvas.on('object:added', function () {
+  if (!isRedoing) {
+    h = [];
+  }
+  isRedoing = false;
+});
+
+// undo and redo
+var isRedoing = false;
+var stackState = [];
+function undo () {
+  if (canvas._objects.length > 0) {
+    stackState.push(canvas._objects.pop());
+    canvas.renderAll();
+  }
+}
+function redo () {
+  if (stackState.length > 0) {
+    isRedoing = true;
+    canvas.add(stackState.pop());
+  }
+}
+
 canvas.on({
   'selection:updated': onChangeProp,
   'selection:created': onChangeProp,
@@ -160,17 +197,21 @@ canvas.on({
 });
 
 document.getElementById('fill-transparent').addEventListener('click', (e) => {
+  inputColor = e.target.value;
   if (activeObject) {
-    inputColor = e.target.value;
     activeObject.set({ 'fill': '' });
     canvas.requestRenderAll();
   }
 });
 
 document.getElementById('input-color').addEventListener('input', (e) => {
+  inputColor = e.target.value;
   if (activeObject) {
-    inputColor = e.target.value;
     activeObject.set({ 'fill': inputColor });
     canvas.requestRenderAll();
+  }
+
+  if (canvas.isDrawingMode) {
+    canvas.freeDrawingBrush.color = inputColor;
   }
 });
