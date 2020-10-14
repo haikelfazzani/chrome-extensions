@@ -1,12 +1,13 @@
 let inputColor = '#000';
 let activeObject = null;
 let pointerEvents = false;
+let groupObjects = [];
 
 const canvas = new fabric.Canvas('canvas', { isDrawingMode: false, width: window.innerWidth, height: window.innerHeight });
 fabric.Object.prototype.transparentCorners = false;
-console.log(canvas.style);
+
 document.getElementById('fab-draw').addEventListener('click', (e) => {
-  switch (e.target.textContent) {
+  switch (e.target.dataset.item) {
     case 'text':
       canvas.add(new fabric.Textbox('MyText', {
         fontSize: 14,
@@ -29,6 +30,29 @@ document.getElementById('fab-draw').addEventListener('click', (e) => {
       canvas.requestRenderAll();
       break;
 
+    case 'arrow':
+      let triangle = new fabric.Triangle({
+        width: 10,
+        height: 15,
+        fill: 'black',
+        left: 235,
+        top: 65,
+        angle: 90
+      });
+
+      let line = new fabric.Line([50, 100, 200, 100], {
+        left: 75,
+        top: 70,
+        stroke: 'black'
+      });
+
+      let objs = [line, triangle];
+
+      let alltogetherObj = new fabric.Group(objs);
+      canvas.add(alltogetherObj);
+      canvas.requestRenderAll();
+      break;
+
     case 'triangle':
       canvas.add(new fabric.Triangle({
         stroke: '#000', width: 100, height: 100, left: 50, top: 300, fill: '#cca'
@@ -37,16 +61,22 @@ document.getElementById('fab-draw').addEventListener('click', (e) => {
       break;
 
     case 'circle':
-      canvas.add(new fabric.Circle({ stroke: '#000', radius: 30, fill: '#f55', top: 100, left: 100 }));
+      canvas.add(new fabric.Circle({ stroke: '#000', radius: 30, fill: '', top: 100, left: 100 }));
+      canvas.requestRenderAll();
+      break;
 
-      // canvas.item(0).set({
-      //   borderColor: 'red',
-      //   cornerColor: 'green',
-      //   cornerSize: 6,
-      //   transparentCorners: false
-      // });
-      // canvas.setActiveObject(canvas.item(0));
-      // // this.__canvases.push(canvas);
+    case 'ellipse':
+      canvas.add(new fabric.Ellipse({
+        left: 100,
+        top: 100,
+        stroke: 'black',
+        fill: '',
+        selectable: true,
+        originX: 'center',
+        originY: 'center',
+        rx: 80,
+        ry: 40
+      }));
       canvas.requestRenderAll();
       break;
 
@@ -163,6 +193,7 @@ function onChange (options) {
 function onChangeProp (e) {
   activeObject = e.target;
   activeObject = canvas.getActiveObjects()[0];
+  groupObjects = canvas.getActiveObject()._objects;
 }
 
 canvas.on('object:added', function () {
@@ -205,13 +236,23 @@ document.getElementById('fill-transparent').addEventListener('click', (e) => {
 });
 
 document.getElementById('input-color').addEventListener('input', (e) => {
+
+  let name = e.target.name;
   inputColor = e.target.value;
+
   if (activeObject) {
-    activeObject.set({ 'fill': inputColor });
-    canvas.requestRenderAll();
+    activeObject.set({ [name]: inputColor });
+  }
+
+  if (groupObjects && groupObjects.length > 0) {
+    groupObjects.forEach(g => {
+      g.set({ [name]: inputColor });    
+    });
   }
 
   if (canvas.isDrawingMode) {
-    canvas.freeDrawingBrush.color = inputColor;
+    canvas.freeDrawingBrush.color = inputColor;    
   }
+
+  canvas.requestRenderAll();
 });

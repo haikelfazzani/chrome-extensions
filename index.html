@@ -16,7 +16,6 @@
       <span>eraser-all</span>
       <span>fill</span>
       <span>interact-page</span>
-      <span>move</span>      
       <span>step backward</span>
       <span>step forward</span>
     </div>
@@ -31,20 +30,46 @@
     </div>
 
     <div class="vertical-align col-8" id="fab-draw">
-      <span>text</span>
-      <span>line</span>
-      <span>circle</span>
-      <span>triangle</span>
-      <span>rectangle</span>
-      <span>octagon</span>
-      <span>emerald</span>
-      <span>star</span>
+      <span data-item="text">text</span>
+      <span data-item="line">line</span>
+      <span data-item="arrow">arrow</span>
+      <span data-item="circle">circle</span>
+      <span data-item="ellipse">ellipse</span>
+      <span data-item="triangle">triangle</span>
+      <span data-item="rectangle">rectangle</span>
+      <span data-item="octagon"><svg id="svg" preserveAspectRatio="none" viewBox="0 0 100 100" width="16">
+          <path
+            d="M 50 4.899 L 72.437 22.458 L 95.102 39.688 L 86.304 67.768 L 77.875 95.976 L 50 95.771 L 22.125 95.976 L 13.696 67.768 L 4.898 39.688 L 27.563 22.458 Z"
+            style="fill: inherit; stroke: inherit; stroke-width: 10.181; stroke-linejoin: round; opacity: 0.2;"></path>
+          <path
+            d="M 50 0 L 74.875 19.28 L 100 38.197 L 90.249 69.031 L 80.902 100 L 50 99.776 L 19.098 100 L 9.752 69.031 L 0 38.197 L 25.125 19.28 L 50 0 Z M 27.963 22.785 L 5.705 39.544 L 14.344 66.859 L 22.758 95.233 L 50.134 95.034 L 77.51 95.233 L 85.656 66.859 L 94.295 39.544 L 72.037 22.785 L 50 5.705 L 27.963 22.785 Z"
+            style="stroke: inherit; stroke-width: 11.179; stroke-linejoin: round;"></path>
+        </svg></span>
+      <span data-item="emerald">emerald</span>
+      <span data-item="star">star</span>
+    </div>
+
+    <div id="input-color">
+      <div>
+        <label>fill</label>
+        <input type="color" name="fill">
+      </div>
+      <div>
+        <label>background</label>
+        <input type="color" name="background">
+      </div>
+      <div>
+        <label>stroke</label>
+        <input type="color" name="stroke">
+      </div>
+      <div>
+        <label>shadow</label>
+        <input type="color" name="shadow">
+      </div>
+      <div id="fill-transparent">transparent</div>
     </div>
   </div>
 
-  <input type="color" name="input-color" id="input-color">
-  <div id="fill-transparent">transparent</div>
-  
   <h1>hello world</h1>
   <canvas id="canvas"></canvas>
 
@@ -52,7 +77,7 @@
 
   <script src="api.js"></script>
   <script src="app.js"></script>
-  
+
 </body>
 
 </html>
