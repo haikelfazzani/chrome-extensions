@@ -5,11 +5,11 @@ function deleteSelectedObjectsFromCanvas (canvas) {
   canvas.discardActiveObject().renderAll();
 }
 
-function exportToIMG () {
-  let dataURL = canvas.toDataURL("image/jpeg", 1.0);
+function exportToIMG (filename = 'untitled.jpeg', type = "image/jpeg") {
+  let dataURL = canvas.toDataURL(type, 1.0);
   let a = document.createElement('a');
   a.href = dataURL;
-  a.download = 'untitled.jpeg';
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
 }

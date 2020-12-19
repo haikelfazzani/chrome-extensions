@@ -6,11 +6,12 @@ let groupObjects = [];
 const canvas = new fabric.Canvas('canvas', { isDrawingMode: false, width: window.innerWidth, height: window.innerHeight });
 fabric.Object.prototype.transparentCorners = false;
 
-document.getElementById('fab-draw').addEventListener('click', (e) => {
+
+fabDraw.addEventListener('click', (e) => {
   switch (e.target.dataset.item) {
     case 'text':
       canvas.add(new fabric.Textbox('MyText', {
-        fontSize: 14,
+        fontSize: 16,
         left: 20,
         top: 20,
         textAlign: 'center'
@@ -82,7 +83,7 @@ document.getElementById('fab-draw').addEventListener('click', (e) => {
 
     case 'rectangle':
       canvas.add(new fabric.Rect({
-        width: 50, height: 100, left: 275, top: 350, angle: 45,
+        width: 50, height: 100, left: 275, top: 350, angle: 90,
         stroke: '#000',
         strokeWidth: 1,
         fill: 'rgba(0,0,200,0.5)'
@@ -142,7 +143,7 @@ document.getElementById('fab-draw').addEventListener('click', (e) => {
   }
 });
 
-document.getElementById('fab-tools').addEventListener('click', (e) => {
+fabTools.addEventListener('click', (e) => {
   switch (e.target.textContent) {
     case 'eraser': // erase only selected elements
       deleteSelectedObjectsFromCanvas(canvas);
@@ -162,14 +163,14 @@ document.getElementById('fab-tools').addEventListener('click', (e) => {
   }
 });
 
-document.getElementById('fab-edit').addEventListener('click', (e) => {
-  switch (e.target.textContent) {
+fabEdit.addEventListener('click', (e) => {
+  switch (e.target.dataset.item) {
     case 'drawing':
       canvas.isDrawingMode = true;
       canvas.freeDrawingBrush.width = 10;
       break;
 
-    case 'shapes':
+    case 'move-object':
       canvas.isDrawingMode = false;
       break;
 
@@ -196,11 +197,14 @@ function onChangeProp (e) {
   groupObjects = canvas.getActiveObject()._objects;
 }
 
-canvas.on('object:added', function () {
+canvas.on('object:added', function (obj) {
   if (!isRedoing) {
     h = [];
   }
   isRedoing = false;
+  if(!canvas.isDrawingMode) {
+    canvas.centerObject(obj.target);
+  }
 });
 
 // undo and redo
@@ -227,7 +231,7 @@ canvas.on({
   'object:rotating': onChange,
 });
 
-document.getElementById('fill-transparent').addEventListener('click', (e) => {
+btnFillTransparent.addEventListener('click', (e) => {
   inputColor = e.target.value;
   if (activeObject) {
     activeObject.set({ 'fill': '' });
@@ -235,7 +239,7 @@ document.getElementById('fill-transparent').addEventListener('click', (e) => {
   }
 });
 
-document.getElementById('input-color').addEventListener('input', (e) => {
+inputColorEL.addEventListener('input', (e) => {
 
   let name = e.target.name;
   inputColor = e.target.value;

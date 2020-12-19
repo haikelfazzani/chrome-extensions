@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/content.css">
 </head>
 
 <body>
@@ -16,17 +16,16 @@
       <span>eraser-all</span>
       <span>fill</span>
       <span>interact-page</span>
-      <span>step backward</span>
-      <span>step forward</span>
+      <span>undo</span>
+      <span>redo</span>
     </div>
 
     <div class="vertical-align col-8" id="fab-edit">
-      <span>drawing</span>
-      <span>shapes</span>
-      <span>save changes</span>
-      <span>capture</span>
-      <span>export</span>
-      <span>close panel</span>
+      <span data-item="drawing">drawing</span>
+      <span data-item="move-object">move</span>
+      <span data-item="capture">capture</span>
+      <span data-item="export">export</span>
+      <span data-item="close-panel">close panel</span>
     </div>
 
     <div class="vertical-align col-8" id="fab-draw">
@@ -40,7 +39,7 @@
       <span data-item="octagon"><svg id="svg" preserveAspectRatio="none" viewBox="0 0 100 100" width="16">
           <path
             d="M 50 4.899 L 72.437 22.458 L 95.102 39.688 L 86.304 67.768 L 77.875 95.976 L 50 95.771 L 22.125 95.976 L 13.696 67.768 L 4.898 39.688 L 27.563 22.458 Z"
-            style="fill: inherit; stroke: inherit; stroke-width: 10.181; stroke-linejoin: round; opacity: 0.2;"></path>
+            style="fill: #fff; stroke: #fff; stroke-width: 10.181; stroke-linejoin: round; opacity: 0.2;"></path>
           <path
             d="M 50 0 L 74.875 19.28 L 100 38.197 L 90.249 69.031 L 80.902 100 L 50 99.776 L 19.098 100 L 9.752 69.031 L 0 38.197 L 25.125 19.28 L 50 0 Z M 27.963 22.785 L 5.705 39.544 L 14.344 66.859 L 22.758 95.233 L 50.134 95.034 L 77.51 95.233 L 85.656 66.859 L 94.295 39.544 L 72.037 22.785 L 50 5.705 L 27.963 22.785 Z"
             style="stroke: inherit; stroke-width: 11.179; stroke-linejoin: round;"></path>
@@ -49,20 +48,20 @@
       <span data-item="star">star</span>
     </div>
 
-    <div id="input-color">
-      <div>
+    <div id="input-color" class="vertical-align col-8">
+      <div class="horizontal-align">
         <label>fill</label>
         <input type="color" name="fill">
       </div>
-      <div>
+      <div class="horizontal-align">
         <label>background</label>
         <input type="color" name="background">
       </div>
-      <div>
+      <div class="horizontal-align">
         <label>stroke</label>
         <input type="color" name="stroke">
       </div>
-      <div>
+      <div class="horizontal-align">
         <label>shadow</label>
         <input type="color" name="shadow">
       </div>
@@ -73,10 +72,10 @@
   <h1>hello world</h1>
   <canvas id="canvas"></canvas>
 
-  <script src="fabric.js"></script>
-
-  <script src="api.js"></script>
-  <script src="app.js"></script>
+  <script src="scripts/fabric.js"></script>
+<script src="scripts/init.js"></script>
+  <script src="scripts/api.js"></script>
+  <script src="scripts/content.js"></script>
 
 </body>
 

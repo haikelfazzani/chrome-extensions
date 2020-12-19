@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "fabeditor",
+  "description": "fabric editor.",
+  "version": "1.0.0",
+  "icons": {
+    "256": "icons/icon256.png",
+    "128": "icons/icon128.png",
+    "64": "icons/icon64.png",
+    "32": "icons/icon32.png"
+  },
+  "browser_action": {
+    "default_title": "fabeditor",
+    "default_popup": "popup.html",
+    "browser_style": true
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_end",
+      "css": [
+        "css/content.css"
+      ],
+      "js": [
+        "scripts/fabric.js",
+        "scripts/init.js",
+        "scripts/api.js",
+        "scripts/content.js"
+      ]
+    }
+  ]
+}
